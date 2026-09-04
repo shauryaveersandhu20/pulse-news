@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pulse — Article</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.article-wrap{max-width:900px;margin:48px auto;padding:0 22px}.back{display:inline-block;margin-bottom:28px;text-decoration:none;font-weight:700}.article-meta{color:#777;font-size:14px;margin:14px 0}.article-wrap h1{font-size:clamp(36px,6vw,64px);line-height:1.04;letter-spacing:-2px;margin:0}.article-image{width:100%;max-height:500px;object-fit:cover;border-radius:20px;margin:28px 0}.summary{font-size:20px;line-height:1.7}.takeaways{background:#f5f5f5;border-radius:18px;padding:24px;margin:30px 0}.takeaways h3{margin-top:0}.ad-box{border:1px dashed #bbb;border-radius:14px;min-height:100px;display:flex;align-items:center;justify-content:center;color:#888;font-size:12px;letter-spacing:1px;margin:30px 0}.source-btn{display:inline-block;padding:15px 22px;border-radius:12px;background:#111;color:#fff;text-decoration:none;font-weight:700}.dark .takeaways{background:#222}.dark .article-meta,.dark .ad-box{color:#aaa}.dark .ad-box{border-color:#555}
+</style>
+</head>
+<body>
+<header><a class="logo" href="index.html" style="text-decoration:none;color:inherit"><i></i>PULSE</a><div></div><button id="mode">◐</button></header>
+<main class="article-wrap">
+<a class="back" href="index.html">← Back to Pulse</a>
+<div class="tag" id="source">NEWS</div>
+<h1 id="title">Loading article…</h1>
+<div class="article-meta" id="time"></div>
+<img id="image" class="article-image" alt="" style="display:none">
+<p class="summary" id="summary"></p>
+<section class="takeaways"><h3>Why this matters</h3><p id="why">Pulse gives you a quick, original summary so you can understand the story before deciding whether to read the full report.</p></section>
+<div class="ad-box">ADVERTISEMENT</div>
+<a id="sourceBtn" class="source-btn" target="_blank" rel="noopener noreferrer">Read Full Story ↗</a>
+<p style="color:#777;font-size:13px;margin-top:18px">The full article remains with its original publisher. Pulse News does not republish the source article.</p>
+</main>
+<script>
+const p=new URLSearchParams(location.search);
+const get=k=>p.get(k)||"";
+document.title=(get("title")?get("title")+" — Pulse":"Pulse — Article");
+document.querySelector("#title").textContent=get("title")||"Article";
+document.querySelector("#source").textContent=get("source")||"News";
+document.querySelector("#time").textContent=get("time")||"";
+document.querySelector("#summary").textContent=get("description")||"A concise summary of this story from the original publisher.";
+const image=get("image"); if(image){const el=document.querySelector("#image");el.src=image;el.style.display="block";el.onerror=()=>el.style.display="none"}
+const link=get("link");const btn=document.querySelector("#sourceBtn"); if(link)btn.href=link; else {btn.style.display="none"}
+document.querySelector("#mode").onclick=()=>document.body.classList.toggle("dark");
+</script>
+</body></html>
