@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pulse — Daily News</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="logo"><i></i>PULSE</div><nav id="nav"></nav><button id="mode">◐</button></header>
+<main>
+  <section class="intro"><div><small>DAILY NEWS</small><h1>Know what<br><em>matters today.</em></h1><p>Fresh headlines collected from Google News RSS feeds.</p></div><div class="live"><b></b><span id="status">Loading news…</span></div></section>
+  <div class="tools"><label>⌕ <input id="search" placeholder="Search today's headlines"></label><button id="refresh">↻ Refresh</button></div>
+  <div id="error" class="error"></div>
+  <section id="news" class="grid"></section>
+</main>
+<footer>Pulse • News links belong to their original publishers</footer>
+<script src="app.js"></script>
+</body></html>
